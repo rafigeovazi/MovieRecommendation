@@ -2,7 +2,8 @@ import streamlit as st
 import pickle
 import requests
 from login_page import login
-import urllib.request
+import request
+import io
 
 # Run login page
 if "logged_in" not in st.session_state:
@@ -33,9 +34,8 @@ else:
     movies = pickle.load(open("movie_list.pkl", 'rb'))
     movies_list = movies['title'].values
     similarity_url = "https://huggingface.co/datasets/Geosling/MovieRecommendation/resolve/main/similarity.pkl"
-    with urllib.request.urlopen(similarity_url) as f:
-        similarity = pickle.load(f)
-   
+    response = requests.get(similarity_url)
+    similarity = pickle.load(io.BytesIO(response.content))
 
     st.header("Absolute Cinema ✋🏻😶🤚🏻!")
 
