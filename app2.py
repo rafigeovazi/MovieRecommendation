@@ -50,7 +50,6 @@ else:
         fetch_poster(37799),   
         fetch_poster(693134),      
         fetch_poster(155),
-        fetch_poster(62),
         fetch_poster(299534),
     ]
     imageCarouselComponent(imageUrls=imageUrls, height=200)
