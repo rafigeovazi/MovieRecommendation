@@ -37,7 +37,7 @@ else:
     response = requests.get(similarity_url)
     similarity = pickle.load(io.BytesIO(response.content))
 
-    st.header("Absolute Cinema ✋🏻😶🤚🏻!")
+    st.write("Let's find your new fav movie dawg!!")
 
     import streamlit.components.v1 as components
     imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
