@@ -48,17 +48,8 @@ if not st.session_state.logged_in:
     imageUrls = [
         fetch_poster(157336),
         fetch_poster(37799),   
-        fetch_poster(62),      
-        fetch_poster(299534),  
-        fetch_poster(155),     
-        fetch_poster(120),     
-        fetch_poster(244786),  
-        fetch_poster(693134),  
-        fetch_poster(1422),    
-        fetch_poster(27205),   
-        fetch_poster(290),     
-        fetch_poster(792307),  
-        fetch_poster(839),
+        fetch_poster(693134),      
+        fetch_poster(155),  
     ]
     imageCarouselComponent(imageUrls=imageUrls, height=200)
     selectvalue = st.selectbox("Select movie from dropdown", movies_list)
