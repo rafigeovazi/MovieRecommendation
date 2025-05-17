@@ -12,7 +12,9 @@ if "logged_in" not in st.session_state:
 if not st.session_state.logged_in:
     logged_in = login()
     if logged_in:
+        st.session_state.logged_in = True
         st.experimental_rerun()
+    st.stop()
 else:
     # -----------------------------
     # ✅ Main Page
@@ -28,6 +30,7 @@ else:
     if st.session_state.get("just_logged_out"):
         st.session_state.just_logged_out = False
         st.experimental_rerun()
+    st.stop()
 
     # Function to fetch movie poster
     def fetch_poster(movie_id):
@@ -52,7 +55,7 @@ else:
         fetch_poster(37799),   
         fetch_poster(693134),      
         fetch_poster(155),
-        fetch_poster(),
+        fetch_poster(290),
     ]
     imageCarouselComponent(imageUrls=imageUrls, height=200)
     selectvalue = st.selectbox("Select movie from dropdown", movies_list)
