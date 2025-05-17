@@ -15,7 +15,6 @@ else:
     if st.session_state.get("just_logged_in"):
         st.session_state.just_logged_in = False
         st.experimental_rerun()
-else:
     # -----------------------------
     # ✅ Main Page
     # -----------------------------
