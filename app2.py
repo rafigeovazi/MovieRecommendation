@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import requests
 from login_page import login
-import request
+import requests
 import io
 
 # Run login page
