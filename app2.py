@@ -10,11 +10,8 @@ if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 if not st.session_state.logged_in:
-    logged_in = login()
-else:
-    if st.session_state.get("just_logged_in"):
-        st.session_state.just_logged_in = False
-        st.experimental_rerun()
+    if login():
+        st.experimental_rerun()  # Rerun aman, langsung masuk main page
     # -----------------------------
     # ✅ Main Page
     # -----------------------------
