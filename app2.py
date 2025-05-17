@@ -23,7 +23,6 @@ else:
     if st.button("Logout"):
         st.session_state.logged_in = False
         st.session_state.just_logged_out = True
-        st.experimental_rerun()
 
     if st.session_state.get("just_logged_out"):
         st.session_state.just_logged_out = False
@@ -51,7 +50,8 @@ else:
         fetch_poster(37799),   
         fetch_poster(693134),      
         fetch_poster(155),
-        fetch_poster(290),
+        fetch_poster(62),
+        fetch_poster(299534),
     ]
     imageCarouselComponent(imageUrls=imageUrls, height=200)
     selectvalue = st.selectbox("Select movie from dropdown", movies_list)
