@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import requests
 from login_page import login
-import urlib.request
+import urllib.request
 
 # Run login page
 if "logged_in" not in st.session_state:
