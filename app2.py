@@ -10,8 +10,10 @@ if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 if not st.session_state.logged_in:
-    if login():
-        st.experimental_rerun()  # Rerun aman, langsung masuk main page
+    logged_in = login()
+    if logged_in:
+        st.experimental_rerun()
+else:
     # -----------------------------
     # ✅ Main Page
     # -----------------------------
@@ -49,7 +51,8 @@ if not st.session_state.logged_in:
         fetch_poster(157336),
         fetch_poster(37799),   
         fetch_poster(693134),      
-        fetch_poster(155),  
+        fetch_poster(155),
+        fetch_poster(),
     ]
     imageCarouselComponent(imageUrls=imageUrls, height=200)
     selectvalue = st.selectbox("Select movie from dropdown", movies_list)
