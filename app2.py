@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import requests
 from login_page import login
-import gdown
+import urlib.request
 
 # Run login page
 if "logged_in" not in st.session_state:
@@ -31,9 +31,11 @@ else:
         return f"https://image.tmdb.org/t/p/w500/{poster_path}"
 
     movies = pickle.load(open("movie_list.pkl", 'rb'))
-    gdown.download('https://drive.google.com/file/d/1zHFYs0PcPc5grgfuRopOzCU4Dgadeokz/view?usp=drive_link', 'similarity.pkl', quiet=False)
-    similarity = pickle.load(open("similarity.pkl", 'rb'))
     movies_list = movies['title'].values
+    similarity_url = "https://huggingface.co/datasets/Geosling/MovieRecommendation/resolve/main/similarity.pkl"
+    with urllib.request.urlopen(similarity_url) as f:
+        similarity = pickle.load(f)
+   
 
     st.header("Absolute Cinema ✋🏻😶🤚🏻!")
 
