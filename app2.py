@@ -37,27 +37,26 @@ else:
     response = requests.get(similarity_url)
     similarity = pickle.load(io.BytesIO(response.content))
 
-    st.write("Let's find your new fav movie dawg!!")
+    st.write("Let's find your new fav movie Pal!!👊")
 
     import streamlit.components.v1 as components
     imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 
     imageUrls = [
-        fetch_poster(1632),
-        fetch_poster(299536),
-        fetch_poster(17455),
-        fetch_poster(2830),
-        fetch_poster(429422),
-        fetch_poster(9722),
-        fetch_poster(13972),
-        fetch_poster(240),
-        fetch_poster(155),
-        fetch_poster(598),
-        fetch_poster(914),
-        fetch_poster(255709),
-        fetch_poster(572154)
+        fetch_poster(157336),
+        fetch_poster(37799),   
+        fetch_poster(62),      
+        fetch_poster(299534),  
+        fetch_poster(155),     
+        fetch_poster(120),     
+        fetch_poster(244786),  
+        fetch_poster(693134),  
+        fetch_poster(1422),    
+        fetch_poster(27205),   
+        fetch_poster(290),     
+        fetch_poster(792307),  
+        fetch_poster(839),
     ]
-
     imageCarouselComponent(imageUrls=imageUrls, height=200)
     selectvalue = st.selectbox("Select movie from dropdown", movies_list)
 
