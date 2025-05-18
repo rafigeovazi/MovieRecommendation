@@ -16,6 +16,7 @@ def login():
             if st.button("Login", key="login_btn"):
                 if login_user(username, password):
                     st.session_state.logged_in = True
+                    st.session_state.just_logged_in = True
                     st.success("🦸 Login successful!")
                     return True
                 else:
