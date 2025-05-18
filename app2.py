@@ -12,8 +12,7 @@ if "logged_in" not in st.session_state:
 if not st.session_state.logged_in:
     logged_in = login()
     if logged_in:
-        st.experimental_rerun()
-        st.session_state.logged_in = True
+       st.stop()
 else:
     # -----------------------------
     # ✅ Main Page
