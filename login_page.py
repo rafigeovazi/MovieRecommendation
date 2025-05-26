@@ -18,7 +18,6 @@ def login():
                     st.session_state.logged_in = True
                     st.session_state.just_logged_in = True
                     st.success("🦸 Login successful!")
-                    return True
                 else:
                     st.error("Identity not recognized. Are you a villain?")
 
