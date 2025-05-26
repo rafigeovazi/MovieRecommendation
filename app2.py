@@ -2,8 +2,6 @@ import streamlit as st
 import pickle
 import requests
 from login_page import login
-import requests
-import io
 
 # Run login page
 if "logged_in" not in st.session_state:
@@ -12,7 +10,7 @@ if "logged_in" not in st.session_state:
 if not st.session_state.logged_in:
     logged_in = login()
     if logged_in:
-       st.stop()
+        st.experimental_rerun()
 else:
     # -----------------------------
     # ✅ Main Page
@@ -22,10 +20,6 @@ else:
 
     if st.button("Logout"):
         st.session_state.logged_in = False
-        st.session_state.just_logged_out = True
-
-    if st.session_state.get("just_logged_out"):
-        st.session_state.just_logged_out = False
 
     # Function to fetch movie poster
     def fetch_poster(movie_id):
@@ -40,18 +34,19 @@ else:
     response = requests.get(similarity_url)
     similarity = pickle.load(io.BytesIO(response.content))
 
-    st.write("Let's find your new fav movie Pal!!👊")
+    st.write("Let's find your new fav movie👊!")
 
     import streamlit.components.v1 as components
     imageCarouselComponent = components.declare_component("image-carousel-component", path="frontend/public")
 
     imageUrls = [
         fetch_poster(157336),
-        fetch_poster(37799),   
-        fetch_poster(693134),      
         fetch_poster(155),
+        fetch_poster(693134),
+        fetch_poster(244786),
         fetch_poster(299534),
     ]
+
     imageCarouselComponent(imageUrls=imageUrls, height=200)
     selectvalue = st.selectbox("Select movie from dropdown", movies_list)
 
