@@ -1,0 +1,4 @@
+huggingface-hub
+streamlit
+requests
+pickle-mixin
