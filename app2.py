@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import requests
 from login_page import login
+from huggingface_hub import hf_hub_download  
 
 # Run login page
 if "logged_in" not in st.session_state:
@@ -29,7 +30,14 @@ else:
         return f"https://image.tmdb.org/t/p/w500/{poster_path}"
 
     movies = pickle.load(open("movie_list.pkl", 'rb'))
-    similarity = pickle.load(open("similarity.pkl", 'rb'))
+    
+    similarity_path = hf_hub_download(
+        repo_id="Geosling/MovieRecommendation",
+        filename="similarity.pkl",
+        repo_type="dataset"
+    )
+    similarity = pickle.load(open(similarity_path, 'rb'))
+    
     movies_list = movies['title'].values
 
     st.write("Let's find your new fav movie👊!")
