@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "..\\..\\ImageGallery.svelte"
+  ],
+  "sourcesContent": [
+    "<script lang=\"ts\">import { Streamlit, setStreamlitLifecycle } from \"./streamlit\";\r\nsetStreamlitLifecycle();\r\nexport let imageUrls;\r\nexport let height;\r\nlet selectedImageUrl;\r\nfunction image_onclick(event) {\r\n    selectedImageUrl = event.srcElement.currentSrc;\r\n    Streamlit.setComponentValue(selectedImageUrl);\r\n}\r\n</script>\n\n\n<div class=\"scroller\">\n  {#each imageUrls as imageUrl}\n      <img src={imageUrl} id={imageUrl} alt=\"\" style=\"height: {height}px;\" on:click={image_onclick}>\n  {/each}\n</div>\n\n\n<style>\n  .scroller {\n    min-height: 100px;\n    overflow-x: scroll;\n    overflow-y: hidden;\n    white-space: nowrap;\n  }\n\timg { \n    display: inline-block;\n    padding: 1%;\n    border-radius: 20px;\n    opacity: 0.9; \n    transition: all .2s; \n  }\n\n\timg:hover { \n    opacity: 1; \n    transform: scale(1.05); \n    cursor: pointer;\n  }\n</style>\n\n\n\n\n\n\n"
+  ],
+  "names": [],
+  "mappings": "AAoBE,SAAS,eAAC,CAAC,AACT,UAAU,CAAE,KAAK,CACjB,UAAU,CAAE,MAAM,CAClB,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,MAAM,AACrB,CAAC,AACF,GAAG,eAAC,CAAC,AACF,OAAO,CAAE,YAAY,CACrB,OAAO,CAAE,EAAE,CACX,aAAa,CAAE,IAAI,CACnB,OAAO,CAAE,GAAG,CACZ,UAAU,CAAE,GAAG,CAAC,GAAG,AACrB,CAAC,AAEF,kBAAG,MAAM,AAAC,CAAC,AACR,OAAO,CAAE,CAAC,CACV,SAAS,CAAE,MAAM,IAAI,CAAC,CACtB,MAAM,CAAE,OAAO,AACjB,CAAC"
+}
