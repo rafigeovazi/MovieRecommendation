@@ -10,7 +10,7 @@ def login():
         tab1, tab2 = st.tabs(["🔐 Login", "🦇 Register"])
 
         with tab1:
-            st.subheader("Login Page")
+            st.subheader("Login Pageeeeeeee")
             username = st.text_input("Username", key="login_user")
             password = st.text_input("Password", type="password", key="login_pass")
             if st.button("Login", key="login_btn"):
